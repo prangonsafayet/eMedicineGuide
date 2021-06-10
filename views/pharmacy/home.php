@@ -61,6 +61,32 @@
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="col">
+                            <div class="cards text-center bg-light">
+                                <div class="card-body">
+                                    <h5>Show Queued Orders</h5>
+                                    <p>Show Queued Orders from customers</p>
+                                    <a href="showOrders.php">Show Orders</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="col">
+                            <div class="cards text-center bg-light">
+                                <div class="card-body">
+                                    <h5>Show Processed Orders</h5>
+                                    <p>Show Processed Orders</p>
+                                    <a href="showProcessedOrders.php">Show Orders</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>

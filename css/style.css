@@ -51,7 +51,8 @@ a {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
+  background-attachment: fixed;
 }
 #customer_home .cu_func a {
   color: #000;
@@ -74,4 +75,13 @@ a {
 
 #showUsers table tr:nth-child(even) {
   background-color: #dddddd;
+}
+.order_div{
+  background-color: #eee;
+  border: 1px #ddd solid;
+  border-radius:5px;
+  margin: 10px;
+}
+.order_div div{
+  padding: 10px;
 }

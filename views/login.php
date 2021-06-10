@@ -69,8 +69,12 @@
                         {
                             $firstName = $row["firstName"];
                             $id = $row["id"];
+                            $region = $row["region"];
+                            $address = $row["address"];
                             $_SESSION["firstName"] = $firstName;
+                            $_SESSION["address"] = $address;
                             $_SESSION["id"] = $id;
+                            $_SESSION["region"] = $region;
                             header("Location:customer/home.php");
                         }
                         else{
