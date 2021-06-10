@@ -1,0 +1,77 @@
+/** 
+ * Header Area 
+ **/
+.header-top {
+  padding: 1%;
+}
+.menu {
+  margin-left: 150px;
+}
+.menu a {
+  text-decoration: none;
+  /*	text-transform: uppercase;*/
+  font-weight: bold;
+  margin-left: 10px;
+}
+.menu a:hover {
+  color: #657f3b;
+}
+
+/*Header ends here------------> */
+
+div.carousel-caption {
+  background-color: #000;
+  opacity: 0.5;
+  /* width: 100%; */
+}
+a {
+  text-decoration: none !important;
+}
+#login,
+#forgot_password {
+  /*	//background: #4b3f34;*/
+  /*color: black;
+        width: 100%;
+        background: url(images/12.jpg) no-repeat center center fixed; 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top left; 
+        background-size: 13%;*/
+  background: url(../images/13.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+#customer_home,
+#admin_home {
+  background: url(../images/12.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+#customer_home .cu_func a {
+  color: #000;
+}
+
+#login form button.login:hover {
+  background-color: #fff !important;
+}
+
+
+
+/* Users */
+
+
+#showUsers table td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+#showUsers table tr:nth-child(even) {
+  background-color: #dddddd;
+}
