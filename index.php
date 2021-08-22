@@ -26,6 +26,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="./views/customer/signup.php">Customer SignUp</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./views/deliveryGuy/signup.php">DeliveryGuy SignUp</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./views/login.php">Login</a>
                 </li>
