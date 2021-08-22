@@ -62,7 +62,7 @@
                         </a>
 					</div>
 					<div class="col-md-3" style="margin: 2%;background-color: #e3e8ef;border: 1px #e3e8ef;border-radius: 5%; opacity:0.6;filter: alpha(opacity=60);text-align: center;margin-left: 5%;padding-top: 2%;padding-bottom: 2%;box-shadow: 5px 10px #989ba0;margin-top: 4%">
-                        <a href="#">
+                        <a href="./showAmbulance.php">
                             <div>
                                 <img src="../../images/ambulance.png" alt=""  style="max-height: 70%;max-width: 70%"> 
                                 <br>
@@ -71,6 +71,16 @@
                             </div>
                         </a>
 					</div>
+                    <div class="col">
+                        <div class="cards text-center bg-light">
+                            <div class="card-body">
+                                <h5>Show previous Orders</h5>
+                                <p>Show Previous Orders</p>
+                                <a href="showPreviousOrders.php">Previous Orders</a>
+                            </div>
+                        </div>
+                    </div>
+                    
 			</div>
         </div>
     </section>

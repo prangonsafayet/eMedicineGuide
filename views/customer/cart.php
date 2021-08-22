@@ -45,7 +45,7 @@
         <div class="row">
         <?php
 
-                    $con=mysqli_connect("localhost","root","","emedicineguide");
+                    $con=mysqli_connect("localhost","root","","emedicineguide2");
                     // Check connection
                     if(!$con){
                         die("Connection failed: ".mysqli_connect_error);
@@ -100,6 +100,7 @@
                     <?php
 
                         if ( $_SERVER["REQUEST_METHOD"] == "POST"){
+                            $date= date("d.m.Y");
                             $amount = $_POST["amount"];
                             $totalPrice = $amount * $price;
                             $filename = $_FILES["uploadPrescription"]["name"];
@@ -125,7 +126,7 @@
                                     die("Connection failed: ".mysqli_connect_error);
                                 }
                                 else{
-                                    $sql="insert into cart(med_id, product_name,product_dosage,price_per_unit,quantity,totalPrice,status,customer_email,ph_id, prescription, id) values('".$med_id."', '".$name."', '".$dosage."', '".$price."', '".$amount."', '".$totalPrice."', 'pending', '".$email."', '".$ph_id."', '".$filename."',  LAST_INSERT_ID())";
+                                    $sql="insert into cart(med_id, product_name,product_dosage,price_per_unit,quantity,totalPrice,status,customer_email,customer_region, date,ph_id, prescription, id) values('".$med_id."', '".$name."', '".$dosage."', '".$price."', '".$amount."', '".$totalPrice."', 'pending', '".$email."', '".$region."', '".$date."', '".$ph_id."', '".$filename."',  LAST_INSERT_ID())";
                                     $result= mysqli_query($con,$sql)or die(mysqli_error($con));
                                     if($result){
                                        

@@ -6,7 +6,7 @@
     }
     else{
         $id = $_GET['id']; // get id through query string
-        $result = mysqli_query($con,"DELETE FROM cart where id='".$id."';") or die("Failed to Login".mysql_error());
-        header("location:viewCart.php"); 
+        $result = mysqli_query($con,"UPDATE ambulance SET availability='No' where id='".$id."';") or die("Failed to Login".mysql_error());
+        header("location:home.php"); 
     }
 ?>

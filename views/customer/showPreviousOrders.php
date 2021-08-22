@@ -48,7 +48,7 @@
                 die("Connection failed: ".mysqli_connect_error);
             }
             else{
-                $result = mysqli_query($con,"SELECT * FROM cart where customer_email = '".$email."'");
+                $result = mysqli_query($con,"SELECT * FROM previous_orders where customer_email = '".$email."'");
             }
             
 
@@ -72,7 +72,7 @@
                         <h6>Ordered on: <?php echo $row['date']; ?></h6>
                         <p>Status: <strong><?php echo $row['status']; ?></strong></p>
                         <p>Delivery Address: <?php echo $address; ?></p>
-                        <td><a href="deleteCart.php?id=<?php echo $row['id']; ?>">Remove from Cart</a></td>
+                       
                     </div>
                 </div>
             </div>

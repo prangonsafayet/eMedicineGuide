@@ -39,51 +39,104 @@
         </nav>
         <div class="container">
             <div class="row p-5">
-
+            <form action="" method="post">
+            <label>Search for Medicines</label>
+                <input type="text" name="search">
+                <input type="submit" name="submit" value="Search">
+            </form>
 
 
             <?php
+                error_reporting(0);
+                $con=mysqli_connect("localhost","root","","emedicineguide2");
+                $search_value=$_POST["search"];
+                if (isset($_POST['submit'])){
+                    if(!$con){
+                        die("Connection failed: ".mysqli_connect_error);
+                    }
+                    else{
+                        // Check connection
+                        if(!$con){
+                            die("Connection failed: ".mysqli_connect_error);
+                        }
+                        else{
+                            $result = mysqli_query($con,"SELECT * FROM pharmacy where region = '".$region."'");
+                        }
 
+                        echo "<table border='1'>
+                        <tr>
+                            <th>Name</th>
+                            <th>Dosage</th>
+                            <th>Price</th>
+                            <th>Available Units</th>
+                            <th>Provider</th>
+                            
+                        </tr>";
 
-                $con=mysqli_connect("localhost","root","","emedicineguide");
-                // Check connection
-                if(!$con){
-                    die("Connection failed: ".mysqli_connect_error);
+                        while($row = mysqli_fetch_array($result))
+                        {
+                            $ph_id=$row["id"];
+                            $result2 = mysqli_query($con,"SELECT * FROM medicine where ph_id = '".$ph_id."' AND name like '%$search_value%'");
+                            while($row2 = mysqli_fetch_array($result2)){
+                                ?>
+                                <tr>
+                                    <td><?php echo $row2['name']; ?></td>
+                                    <td><?php echo $row2['dosage']; ?></td>    
+                                    <td><?php echo $row2['price']; ?></td>    
+                                    <td><?php echo $row2['m_quantity']; ?></td>
+                                    <td><?php echo $row['name']; ?></td>
+                                    <td><a href="buyFromPharmacy.php?id=<?php echo $row['id']; ?>">Buy from them</a></td>
+                                </tr>
+                                <?php
+                            }
+                        
+                        
+                        }
+                    }
                 }
                 else{
-                    $result = mysqli_query($con,"SELECT * FROM pharmacy where region = '".$region."'");
-                }
-
-                echo "<table border='1'>
-                <tr>
-                    <th>Name</th>
-                    <th>Dosage</th>
-                    <th>Price</th>
-                    <th>Available Units</th>
-                    <th>Provider</th>
                     
-                </tr>";
-
-                while($row = mysqli_fetch_array($result))
-                {
-                    $ph_id=$row["id"];
-                    $result2 = mysqli_query($con,"SELECT * FROM medicine where ph_id = '".$ph_id."'");
-                    while($row2 = mysqli_fetch_array($result2)){
-                        ?>
-                        <tr>
-                            <td><?php echo $row2['name']; ?></td>
-                            <td><?php echo $row2['dosage']; ?></td>    
-                            <td><?php echo $row2['price']; ?></td>    
-                            <td><?php echo $row2['m_quantity']; ?></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><a href="buyFromPharmacy.php?id=<?php echo $row['id']; ?>">Buy from them</a></td>
-                        </tr>
-                        <?php
+                    // Check connection
+                    if(!$con){
+                        die("Connection failed: ".mysqli_connect_error);
                     }
-                
-                
+                    else{
+                        $result = mysqli_query($con,"SELECT * FROM pharmacy where region = '".$region."'");
+                    }
+
+                    echo "<table border='1'>
+                    <tr>
+                        <th>Name</th>
+                        <th>Dosage</th>
+                        <th>Price</th>
+                        <th>Available Units</th>
+                        <th>Provider</th>
+                        
+                    </tr>";
+
+                    while($row = mysqli_fetch_array($result))
+                    {
+                        $ph_id=$row["id"];
+                        $result2 = mysqli_query($con,"SELECT * FROM medicine where ph_id = '".$ph_id."'");
+                        while($row2 = mysqli_fetch_array($result2)){
+                            ?>
+                            <tr>
+                                <td><?php echo $row2['name']; ?></td>
+                                <td><?php echo $row2['dosage']; ?></td>    
+                                <td><?php echo $row2['price']; ?></td>    
+                                <td><?php echo $row2['m_quantity']; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><a href="buyFromPharmacy.php?id=<?php echo $row['id']; ?>">Buy from them</a></td>
+                            </tr>
+                            <?php
+                        }
+                    
+                    
+                    }
+                    
                 }
                 ?>
+                
 
             </div>
             

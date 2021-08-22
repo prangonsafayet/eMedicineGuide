@@ -39,43 +39,86 @@
         </nav>
         <div class="container">
             <div class="row p-5">
-
+            <form action="" method="post">
+            <label>Search for pharmacies</label>
+                <input type="text" name="search">
+                <input type="submit" name="submit" value="Search">
+            </form>
 
 
             <?php
-
-
-                $con=mysqli_connect("localhost","root","","emedicineguide");
-                // Check connection
-                if(!$con){
-                    die("Connection failed: ".mysqli_connect_error);
-                }
-                else{
-                    $result = mysqli_query($con,"SELECT * FROM pharmacy where region = '".$region."'");
-                }
-
-
-                while($row = mysqli_fetch_array($result))
-                {
-                ?>
-                <div class="col">
-                    <div class="card">
-                        <div class="col">
-                            <div class="cards text-center bg-light">
-                                <div class="card-body">
-                                    <h5>Name: <?php echo $row['name']; ?></h5>
-                                    <p>Contact No: <?php echo $row['phone']; ?></p>
-                                    <p>Address: <?php echo $row['address']; ?></p>
-                                    <a href="buyFromPharmacy.php?id=<?php echo $row['id']; ?>">Buy from them</a>
+            error_reporting(0);
+                $con=mysqli_connect("localhost","root","","emedicineguide2");
+                $search_value=$_POST["search"];
+                if (isset($_POST['submit'])){
+                    // Check connection
+                    if(!$con){
+                        die("Connection failed: ".mysqli_connect_error);
+                    }
+                    else{
+                        $result = mysqli_query($con,"SELECT * FROM pharmacy where region = '".$region."' AND name like '%$search_value%'");
+                    }
+    
+    
+                    while($row = mysqli_fetch_array($result))
+                    {
+                    ?>
+                    <div class="col">
+                        <div class="card">
+                            <div class="col">
+                                <div class="cards text-center bg-light">
+                                    <div class="card-body">
+                                        <h5>Name: <?php echo $row['name']; ?></h5>
+                                        <p>Contact No: <?php echo $row['phone']; ?></p>
+                                        <p>Address: <?php echo $row['address']; ?></p>
+                                        <a href="buyFromPharmacy.php?id=<?php echo $row['id']; ?>">Buy from them</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <?php
+                    
+                    <?php
+                    }
+                }
+
+                else{
+                    
+                    // Check connection
+                    if(!$con){
+                        die("Connection failed: ".mysqli_connect_error);
+                    }
+                    else{
+                        $result = mysqli_query($con,"SELECT * FROM pharmacy where region = '".$region."'");
+                    }
+    
+    
+                    while($row = mysqli_fetch_array($result))
+                    {
+                    ?>
+                    <div class="col">
+                        <div class="card">
+                            <div class="col">
+                                <div class="cards text-center bg-light">
+                                    <div class="card-body">
+                                        <h5>Name: <?php echo $row['name']; ?></h5>
+                                        <p>Contact No: <?php echo $row['phone']; ?></p>
+                                        <p>Address: <?php echo $row['address']; ?></p>
+                                        <a href="buyFromPharmacy.php?id=<?php echo $row['id']; ?>">Buy from them</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <?php
+                    }
+                    
                 }
                 ?>
+
+
+                
 
             </div>
             

@@ -63,38 +63,6 @@
                     </div>
                     </div>
                 </div>
-            
-            
-                <!-- <div class="img col-md-4">
-                    <a href="#">
-                        <img src="../../images/1.jpg" style="margin-bottom: 15px;" alt="" />
-                    </a>
-                </div> -->
-				<!-- <div class="img col-md-4">
-                    <a href="showUsers.php">
-                        <img src="../../images/2.jpg" style="margin-bottom: 15px;" alt="" />
-                    </a>
-                </div> -->
-				<!-- <div class="img col-md-4">
-                    <a href="#">
-                        <img src="../../images/3.jpg" style="margin-bottom: 15px;" alt="" />
-                    </a>
-                </div> -->
-				<!-- <div class="img col-md-4">
-                    <a href="addPharmacy.php">
-                        <img src="../../images/4.jpg" alt="" />
-                    </a>
-                </div> -->
-				<!-- <div class="img col-md-4">
-                    <a href="addAmbulance.php">
-                        <img src="../../images/5.jpg" alt="" />
-                    </a>
-                </div> -->
-				<!-- <div class="img col-md-4">
-                    <a href="#">
-                        <img src="../../images/6.jpg" alt="" />
-                    </a>
-                </div> -->
             </div>
             <div class="row mt-5">
                 <div class="col">
@@ -103,6 +71,15 @@
                             <h5>All Ambulances</h5>
                             <p>Delete Ambulances from list</p>
                             <a href="showAmbulances.php">Ambulances</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cards text-center bg-light">
+                        <div class="card-body">
+                            <h5>Add Delivery Guys</h5>
+                            <p>Add Delivery Guys </p>
+                            <a href="addDeliveryGuy.php">Add Delivery Guys</a>
                         </div>
                     </div>
                 </div>

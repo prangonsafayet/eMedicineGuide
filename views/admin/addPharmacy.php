@@ -95,7 +95,7 @@
                 $pRegion=$_POST["pRegion"];
                 $pPhone=$_POST["pPhone"];
 	            
-	            $conn=mysqli_connect("localhost","root","","emedicineguide");
+	            $conn=mysqli_connect("localhost","root","","emedicineguide2");
 	               if(!$conn){
 		              die("Connection failed: ".mysqli_connect_error);
 	               }

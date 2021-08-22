@@ -23,6 +23,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Customer SignUp</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../deliveryGuy/signup.php">Delivery Guy SignUp</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../login.php">Login</a>
                 </li>
@@ -117,7 +120,7 @@
                 $cuRegion=$_POST["cRegion"];
                 $cuZip=$_POST["cZip"];
 	            
-	            $conn=mysqli_connect("localhost","root","","emedicineguide");
+	            $conn=mysqli_connect("localhost","root","","emedicineguide2");
 	               if(!$conn){
 		              die("Connection failed: ".mysqli_connect_error);
 	               }

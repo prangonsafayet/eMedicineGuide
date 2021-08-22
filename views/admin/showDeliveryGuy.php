@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row p-5">
 
-            <h1>All Ambulances</h1>
+
 
             <?php
 
@@ -45,7 +45,7 @@
                     die("Connection failed: ".mysqli_connect_error);
                 }
                 else{
-                    $result = mysqli_query($con,"SELECT * FROM ambulance");
+                    $result = mysqli_query($con,"SELECT * FROM delivery_guy");
                 }
 
                 
@@ -53,9 +53,8 @@
                 echo "<table border='1'>
                 <tr>
                     <th>id</th>
-                    <th>Phone</th>
+                    <th>email</th>
                     <th>Region</th>
-                    <th>Availability</th>
                 </tr>";
 
                 while($row = mysqli_fetch_array($result))
@@ -63,10 +62,12 @@
                 ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['phone']; ?></td>
+                    <td><?php echo $row['email']; ?></td>  
                     <td><?php echo $row['region']; ?></td>    
-                    <td><?php echo $row['availability']; ?></td>    
-                    <td><a href="deleteAmbulance.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+                    <!-- <td><a href="editPharmacy.php?id=<?php 
+                    echo $row['id'];
+                    ?>">Edit</a></td> -->
+                    <td><a href="deleteDeliveryGuy.php?id=<?php echo $row['id']; ?>">Delete</a></td>
                 </tr>
                 <?php
                 }

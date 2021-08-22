@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row p-5 justify-content-center">
                     <h1 class="text-center">Select User Type</h1>
-                    <div class="col-6 mt-5">
+                    <div class="col-4 mt-5">
                         <div class="card text-center">
                             <div class="card-body">
                             <h5>All customers</h5>
@@ -42,12 +42,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 mt-5">
+                    <div class="col-4 mt-5">
                         <div class="card text-center">
                             <div class="card-body">
                             <h5>All Pharmacies</h5>
                             <p>Edit customer details or delete Pharmacies</p>
                             <a class="nav-link" href="showPharmacies.php">Show Pharmacies</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 mt-5">
+                        <div class="card text-center">
+                            <div class="card-body">
+                            <h5>All Delivery Guys</h5>
+                            <p>Edit Delivery guy's details or delete</p>
+                            <a class="nav-link" href="showDeliveryGuy.php">Show Delivery Guys</a>
                             </div>
                         </div>
                     </div>

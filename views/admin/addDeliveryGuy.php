@@ -32,26 +32,26 @@
         </nav>
         <div class="container">
             <div class="row text-center mb-5 mt-5">
-                <h1>Add Ambulance</h1>
+                <h1>Add Delivery Guy</h1>
             </div>
             <form class="row g-3 needs-validation mt-5" novalidate method="post">
                 <div class="col-md-6">
-                    <label for="validationCustom03" class="form-label">Phone no.</label>
-                    <input type="text" class="form-control" id="validationCustom03" name="aPhone" required>
+                    <label for="validationCustom03" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="validationCustom03" name="dEmail" required>
                     <div class="invalid-feedback">
-                        Please provide a valid phone number.
+                        Please provide a username.
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom03" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="validationCustom03" name="aPass" required>
+                    <input type="password" class="form-control" id="validationCustom03" name="dPass" required>
                     <div class="invalid-feedback">
-                        Please provide a valid password
+                        Please provide a password.
                     </div>
                 </div>
                 <div class="col-md-3">
                     <label for="validationCustom04" class="form-label">Region</label>
-                    <select class="form-select" id="validationCustom04" required name="aRegion">
+                    <select class="form-select" id="validationCustom04" required name="dRegion">
                         <option selected disabled value="">Choose...</option>
                         <option value="Duisburg">Duisburg</option>
                         <option value="Essen">Essen</option>
@@ -60,63 +60,51 @@
                         Please select a valid region.
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <p>Is the Ambulance available?</p>
-                    <input type="checkbox" class="" id="validationCustom03" name="aAvailable" value="Yes">
-                    Yes
-                    <input type="checkbox" class="" id="validationCustom03" name="aAvailable1" value="No">
-                    No
-                </div>
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Submit form</button>
                 </div>
             </form>
-        <?php
-            // error_reporting(0);
+            <?php
+            error_reporting(0);
             if ($_SERVER["REQUEST_METHOD"] == "POST"){
-                function addAmbulance(&$Avail){
-                    $aPhone=$_POST["aPhone"];
-                    $aPass=$_POST["aPass"];
-                    $aRegion=$_POST["aRegion"];
-                    $aAvailable=$Avail;
-                    $conn=mysqli_connect("localhost","root","","emedicineguide2");
-                    if(!$conn){
-                        die("Connection failed: ".mysqli_connect_error);
-                     }
-                     else
-		              {
-                        $sql="insert into ambulance(phone,password,region,availability,id) values('".$aPhone."', '".$aPass."', '".$aRegion."', '".$aAvailable."', LAST_INSERT_ID())";
-                        $result= mysqli_query($conn,$sql)or die(mysqli_error($conn));
-                        if($result){
-                            $message = "Successfully added pharmacy!";
-                             echo "<script type='text/javascript'>alert('$message');</script>";
-                             header("location:home.php");
-                        }
-                        else
-                        {
-                            $message = "Registration Unsuccessful!";
-                             echo "<script type='text/javascript'>alert('$message');</script>";
-                        }
+                $dEmail=$_POST["dEmail"];
+                $dPass=$_POST["dPass"];
+                $dRegion=$_POST["dRegion"];
+	            
+	            $conn=mysqli_connect("localhost","root","","emedicineguide2");
+	               if(!$conn){
+		              die("Connection failed: ".mysqli_connect_error);
+	               }
+	               else
+		              //echo "Connected successfully <br>";
+                      $result = mysqli_query($conn,"SELECT * FROM delivery_guy where email='".$dEmail."';") or die("No Email exists".mysql_error());
+                      $row = mysqli_fetch_array($result);
+                      if($row["email"]==$dEmail){
+                        $message = "Registration Unsuccessful! Email Already Exists!";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        
                       }
-                }
-                
-                if(isset($_POST['aAvailable']) && $_POST['aAvailable'] == 'Yes'){
-                    $aAvail="Yes";
-                    addAmbulance($aAvail);
-                }
-                if(isset($_POST['aAvailable1']) && $_POST['aAvailable1'] == 'No'){
-                    $aAvail="No";
-                    addAmbulance($aAvail);
-                }
-                else{
-                    $message = "Please select availabilty!";
-                    echo "<script type='text/javascript'>alert('$message');</script>";
-                }
-
-                
+                      else{
+                        $sql="insert into delivery_guy(email,password,region,id) values('".$dEmail."', '".$dPass."', '".$dRegion."', LAST_INSERT_ID())";
+                        $result= mysqli_query($conn,$sql)or die(mysqli_error($conn));
+                                if($result){
+                                   
+                                    $message = "Successfully added pharmacy!";
+                                     echo "<script type='text/javascript'>alert('$message');</script>";
+                                     header("location:home.php");
+                                    //  header("Location:../login.php");
+                                    //header("Location:index.php");
+                                }
+                                else
+                                {
+                                   
+                                    $message = "Registration Unsuccessful!";
+                                     echo "<script type='text/javascript'>alert('$message');</script>";
+                                }
+                      }
 	           
             }
-            ?> 
+            ?>
         </div>
 
     </section>

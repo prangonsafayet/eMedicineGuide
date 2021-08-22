@@ -1,5 +1,5 @@
 <?php
-    $con=mysqli_connect("localhost","root","","emedicineguide");
+    $con=mysqli_connect("localhost","root","","emedicineguide2");
     // Check connection
     if(!$con){
         die("Connection failed: ".mysqli_connect_error);
